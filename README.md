@@ -32,10 +32,10 @@ vacation-manager/
     app/                  --> all of the source files for the application
       components/           --> all app specific modules
       views/                --> all app specific views
-        view1/                --> the view1 view template and logic
-          view1.html            --> the partial template
-          view1.js              --> the controller logic
-          view1_test.js         --> tests of the controller
+        index/                --> the index view template and logic
+          index.html            --> the partial template
+          index.js              --> the controller logic
+          index_test.js         --> tests of the controller
         view2/                --> the view2 view template and logic
           view2.html            --> the partial template
           view2.js              --> the controller logic
@@ -45,6 +45,7 @@ vacation-manager/
       components.js         --> file that require all the components in order to ship them with webpack
       index.html            --> app layout file (the main html template file of the app)
       vendor.js             --> javascript dependencies to be included in the webpack bundle
+      vendor.css            --> css dependencies
       views.js              --> file requiring all the views modules to ship with webpack 
     bower.json            --> bower configuration file
     karma.conf.js         --> config file for running unit tests with Karma

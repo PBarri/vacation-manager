@@ -16,7 +16,7 @@ const rootDir = path.resolve(__dirname);
 module.exports = {
     entry: {
         app: ['./app/app.js', './app/views.js', './app/components.js', './app/app.css'],
-        vendor: ['./app/vendor.js']
+        vendor: ['./app/vendor.js', './app/vendors.css']
     },
     output: {
         path: path.resolve(rootDir, 'dist'),
@@ -24,14 +24,14 @@ module.exports = {
         sourceMapFilename: '[name].map'
     },
     resolve: {
-        extensions: ['', '.js'],
+        extensions: ['', '.js', '.css'],
         modulesDirectories: ['node_modules', 'app', 'bower_components']
     },
     module: {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap!postcss-loader")
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
@@ -62,11 +62,13 @@ module.exports = {
                 from: 'app/WEB-INF',
                 to: 'WEB-INF'
             }
-        ])
+        ]),
+        new webpack.optimize.DedupePlugin()
     ],
     debug: true,
     devServer: {
         contentBase: path.resolve(rootDir, 'dist'),
-        stats: 'minimal'
+        stats: 'minimal',
+        port: '8000'
     }
 };

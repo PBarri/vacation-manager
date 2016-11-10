@@ -3,7 +3,11 @@
  */
 'use strict';
 
+// AngularJS libraries
 require('../bower_components/angular');
-
-// This also ships jQuery
-require('../bower_components/bootstrap');
+require('../bower_components/angular-route');
+require('../bower_components/angular-animate');
+require('../bower_components/angular-aria');
+require('../bower_components/angular-loader');
+require('../bower_components/angular-messages');
+require('../bower_components/angular-material');

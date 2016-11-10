@@ -1,0 +1,17 @@
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+war {
+	baseName = "${rootProject.name}-api"
+	version = projectVersion
+}
+
+configurations {
+	providedCompile
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	providedCompile('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

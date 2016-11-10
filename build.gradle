@@ -1,0 +1,70 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+group 'pbarri'
+version projectVersion
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+}
+
+// Project specific tasks
+apply from: 'projectTasks.gradle'
+
+task clean(type: Delete) {
+    println 'Limpiando recursos'
+    delete 'dist'
+    delete 'out'
+}
+
+task runUi << {
+    println 'Arrancando UI'
+}
+
+task runApi << {
+    println 'Arrancando API'
+}
+
+task dist(type: Copy, dependsOn: ':ui:build') {
+    destinationDir = file("dist")
+
+    from('api/build/libs') {
+        include '**/*.war'
+    }
+    from('ui/build/libs') {
+        include '**/*.war'
+    }
+
+    into 'dist'
+
+    includeEmptyDirs = false
+}
+
+task dockerBuild(type: Exec) {
+    commandLine 'docker', 'build', '-t', 'tetralog/vm:latest', '.'
+}
+
+task dockerRun(type: Exec) {
+    commandLine "docker", "run", "--rm", "-p", "8080:8080", "tetralog/vm:latest"
+}
+
+runApi.dependsOn(':api:bootRun')

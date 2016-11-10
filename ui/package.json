@@ -1,0 +1,50 @@
+{
+  "name": "vacation-manager",
+  "version": "1.0.0",
+  "description": "Vacation Manager made with AngularJS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PBarri/vacation-manager.git"
+  },
+  "author": "Pablo Barrientos",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PBarri/vacation-manager/issues"
+  },
+  "homepage": "https://github.com/PBarri/vacation-manager",
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "bower": "^1.7.7",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.7.1",
+    "isparta-loader": "^2.0.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.8",
+    "karma-junit-reporter": "^0.4.1",
+    "node-libs-browser": "^1.0.0",
+    "null-loader": "^0.1.1",
+    "phantomjs-prebuilt": "^2.1.4",
+    "postcss-loader": "^0.9.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "build": "rimraf dist && webpack --inline --colors --progress --display-errors-details --display-cached",
+    "postinstall": "bower install",
+    "start": "npm run server",
+    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test": "karma start",
+    "test-watch": "karma start --auto-watch --no-single-run",
+    "pretest": "npm install",
+    "test-single-run": "karma start karma.conf.js --single-run"
+  }
+}

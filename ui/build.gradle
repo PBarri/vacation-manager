@@ -1,0 +1,29 @@
+plugins {
+	id "com.moowork.node" version "0.13"
+}
+
+apply plugin: 'war'
+
+war {
+	baseName = "${rootProject.name}-ui"
+	version = projectVersion
+	webAppDirName = "${rootDir}/ui/dist/"
+}
+
+compileJava.dependsOn(':api:build')
+
+clean.doFirst {
+	delete "${rootDir}/ui/node_modules/"
+	delete "${rootDir}/ui/bower_components/"
+	delete "${rootDir}/ui/dist/"
+}
+
+task dist(type: NpmTask, dependsOn: 'npm_install') {
+	args = ["run", "build"]
+}
+
+task runUi(type: NpmTask) {
+	args = ["start"]
+}
+
+war.dependsOn(':ui:dist')

@@ -1,0 +1,110 @@
+// Task for generating the jars
+
+task majorRelease(group: 'Deployment', description: 'Generate a new major release jar ready to production') {
+    doFirst{
+        def newVersion = updateMajorVersion(true)
+        version = newVersion
+        println version
+    }
+}
+
+task minorRelease(group: 'Deployment', description: 'Generate a new minor release jar ready to production') {
+    doFirst{
+        def newVersion = updateMinorVersion(true)
+        version = newVersion
+        println version
+    }
+}
+
+task patchRelease(group: 'Deployment', description: 'Generate a new patch release jar ready to production') {
+    doFirst{
+        def newVersion = updatePatchVersion(true)
+        version = newVersion
+        println version
+    }
+}
+
+task majorSnapshot(group: 'Deployment', description: 'Generate a new major release jar for testing') {
+    doFirst{
+        def newVersion = updateMajorVersion(false)
+        version = newVersion
+        println version
+    }
+}
+
+task minorSnapshot(group: 'Deployment', description: 'Generate a new minor release jar for testing') {
+    doFirst{
+        def newVersion = updateMinorVersion(false)
+        version = newVersion
+        println version
+    }
+}
+
+task patchSnapshot(group: 'Deployment', description: 'Generate a new patch release jar for testing') {
+    doFirst{
+        def newVersion = updatePatchVersion(false)
+        version = newVersion
+        println version
+    }
+}
+
+task wrapper(type: Wrapper, group: 'Gradle', description: 'Generate the wrapper') {
+    gradleVersion = '3.1'
+}
+
+// Funciones auxiliares
+
+def updateMajorVersion(Boolean release) {
+    def versionNumber = projectVersion.tokenize('.')
+    def major = versionNumber[0].toInteger()
+    def newVersion
+    if(!release) {
+        major += 1
+        newVersion = "$major.0.0" + ".SNAPSHOT"
+    } else {
+        newVersion = "$major.0.0" + ".RELEASE"
+    }
+    saveProperty("projectVersion", newVersion)
+    return newVersion
+}
+
+def updateMinorVersion(Boolean release) {
+    def versionNumber = projectVersion.tokenize('.')
+    def major = versionNumber[0]
+    def minor = versionNumber[1].toInteger()
+    def newVersion
+    if(!release) {
+        minor += 1
+        newVersion = "$major.$minor.0" + ".SNAPSHOT"
+    } else {
+        newVersion = "$major.$minor.0" + ".RELEASE"
+    }
+    saveProperty("projectVersion", newVersion)
+    return newVersion
+}
+
+def updatePatchVersion(Boolean release) {
+    def versionNumber = projectVersion.tokenize('.')
+    def major = versionNumber[0]
+    def minor = versionNumber[1]
+    def patch = versionNumber[2].toInteger()
+    def newVersion
+    if(!release) {
+        patch += 1
+        newVersion = "$major.$minor.$patch" + ".SNAPSHOT"
+    } else {
+        newVersion = "$major.$minor.$patch" + ".RELEASE"
+    }
+    saveProperty("projectVersion", newVersion)
+    return newVersion
+}
+
+def saveProperty(String property, String value) {
+    Properties props = new Properties()
+    File propertiesFile = file("gradle.properties")
+    propertiesFile.withInputStream {
+        props.load(it)
+    }
+    props.setProperty(property, value)
+    props.store(propertiesFile.newWriter(), null)
+}

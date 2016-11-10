@@ -1,0 +1,11 @@
+/ui/bower_components/
+/ui/node_modules/
+/ui/dist/
+/dist/
+/api/dist/
+/.idea/
+/ui/build/
+/data/build/
+/api/build/
+/.gradle/
+*npm-debug.log*

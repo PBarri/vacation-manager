@@ -54,11 +54,11 @@ vacation-manager/
 ```
 
 
-### Getting Started
+## Getting Started
 
 To get you started you can simply clone the repository and execute the following gradle tasks:
 
-#### Install Dependencies
+### Install Dependencies
 
 We have three kinds of dependencies in this project: tools, angular framework code and spring framework code.  
 The tools help us manage and test the application.
@@ -144,7 +144,7 @@ npm start
 
 *Note that you have to be in the ui root folder*
 
-### Extending the application
+## Extending the application
 
 To add new functionality to the application, you have to have in mind the next:
 
@@ -157,8 +157,8 @@ require('views/view1/view1.js');
 
 * To add a new component (directives), you have to require the entry point of the component to the file `components.js` in the same way we did in the views.
 
-### Testing
+## Testing
 
 `SECTION IN PROGRESS`
 
-#### Running Unit Tests
+### Running Unit Tests

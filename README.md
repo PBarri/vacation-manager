@@ -134,7 +134,7 @@ this server is:
 gradlew runUi
 ```
 
-Now browse to the app at `http://localhost:8080/`.
+Now browse to the app at `http://localhost:8000/vacation-manager`.
 
 Another way to run the ui application is by `npm` with:
 

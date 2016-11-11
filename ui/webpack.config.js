@@ -21,7 +21,8 @@ module.exports = {
     output: {
         path: path.resolve(rootDir, 'dist'),
         filename: '[name].js',
-        sourceMapFilename: '[name].map'
+        sourceMapFilename: '[name].map',
+        publicPath: '/vacation-manager'
     },
     resolve: {
         extensions: ['', '.js', '.css'],

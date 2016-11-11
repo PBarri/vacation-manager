@@ -38,7 +38,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "build": "rimraf dist && webpack --inline --colors --progress --display-errors-details --display-cached",
+    "build": "rimraf dist && webpack -d --inline --colors --progress --display-errors-details --display-cached",
     "postinstall": "bower install",
     "start": "npm run server",
     "server": "webpack-dev-server --history-api-fallback --inline --progress",

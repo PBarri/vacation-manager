@@ -15,9 +15,13 @@ const rootDir = path.resolve(__dirname);
 
 module.exports = {
     entry: {
-        app: ['./app/app.js', './app/views.js', './app/components.js', './app/app.css'],
-        vendor: ['./app/vendor.js', './app/vendors.css']
+        app: ['./app/app.js', './app/views.js', './app/components.js', './app/services.js'],
+        styles: ['./app/styles.css'],
+        vendor: ['./app/vendor.js'],
+        base: ['./app/vendors.css']
     },
+    debug: true,
+    devtool: 'eval-source-map',
     output: {
         path: path.resolve(rootDir, 'dist'),
         filename: '[name].js',
@@ -43,7 +47,6 @@ module.exports = {
             }
         ]
     },
-    devtool: 'eval-source-map',
     postcss: function() {
       return [autoprefixer];
     },
@@ -66,7 +69,6 @@ module.exports = {
         ]),
         new webpack.optimize.DedupePlugin()
     ],
-    debug: true,
     devServer: {
         contentBase: path.resolve(rootDir, 'dist'),
         stats: 'minimal',

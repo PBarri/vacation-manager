@@ -40,10 +40,13 @@ vacation-manager/
           view2.html            --> the partial template
           view2.js              --> the controller logic
           view2_test.js         --> tests of the controller
+        WEB-INF/
+          jboss-web.xml         --> jboss configuration
       app.css               --> default stylesheet
       app.js                --> main application module
       components.js         --> file that require all the components in order to ship them with webpack
       index.html            --> app layout file (the main html template file of the app)
+      services.js           --> javascript service dependencies to be included in the webpack bundle
       vendor.js             --> javascript dependencies to be included in the webpack bundle
       vendor.css            --> css dependencies
       views.js              --> file requiring all the views modules to ship with webpack 
@@ -134,7 +137,7 @@ this server is:
 gradlew runUi
 ```
 
-Now browse to the app at `http://localhost:8080/`.
+Now browse to the app at `http://localhost:8000/vacation-manager`.
 
 Another way to run the ui application is by `npm` with:
 
@@ -152,7 +155,7 @@ To add new functionality to the application, you have to have in mind the next:
 
 Example:
 ```
-require('views/view1/view1.js');
+require('views/index/index.js');
 ```
 
 * To add a new component (directives), you have to require the entry point of the component to the file `components.js` in the same way we did in the views.

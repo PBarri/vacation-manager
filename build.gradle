@@ -60,11 +60,11 @@ task dist(type: Copy, dependsOn: ':ui:build') {
 }
 
 task dockerBuild(type: Exec) {
-    commandLine 'docker', 'build', '-t', 'tetralog/vm:latest', '.'
+    commandLine 'docker', 'build', '-t', 'pbarri/vm:latest', '.'
 }
 
 task dockerRun(type: Exec) {
-    commandLine "docker", "run", "--rm", "-p", "8080:8080", "tetralog/vm:latest"
+    commandLine "docker", "run", "--rm", "-p", "8080:8080", "pbarri/vm:latest"
 }
 
 runApi.dependsOn(':api:bootRun')

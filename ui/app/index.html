@@ -20,7 +20,7 @@
                 <md-content ng-controller="VmController" flex="none">
                     <md-toolbar class="md-hue-2">
                         <div class="md-toolbar-tools">
-                            <md-button class="md-icon-button" ng-click="toggleSidenav()">
+                            <md-button class="md-icon-button" ng-click="toggleSidenav()" hide-gt-md>
                                 <md-icon md-svg-icon="resources/images/menu.svg"></md-icon>
                             </md-button>
                             <h2>
@@ -36,10 +36,7 @@
                                     md-is-locked-open="$mdMedia('gt-md')"
                                     md-whiteframe="4">
                             <md-content layout-padding>
-                                <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                                    Close Sidenav Left
-                                </md-button>
-                                <p hide show-gt-md>
+                                <p>
                                     This is the future menu
                                 </p>
                             </md-content>

@@ -13,7 +13,9 @@ angular
         $routeProvider.otherwise({redirectTo: '/index'});
     }])
     .controller('VmController', function($scope, $mdSidenav) {
-        $scope.toggleSidenav = buildToggler('left');
+        $scope.toggleSidenav = function() {
+            $mdSidenav('left').toggle();
+        }
         $scope.close = function() {
             $mdSidenav('left').close();
         }

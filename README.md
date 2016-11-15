@@ -40,10 +40,13 @@ vacation-manager/
           view2.html            --> the partial template
           view2.js              --> the controller logic
           view2_test.js         --> tests of the controller
+        WEB-INF/
+          jboss-web.xml         --> jboss configuration
       app.css               --> default stylesheet
       app.js                --> main application module
       components.js         --> file that require all the components in order to ship them with webpack
       index.html            --> app layout file (the main html template file of the app)
+      services.js           --> javascript service dependencies to be included in the webpack bundle
       vendor.js             --> javascript dependencies to be included in the webpack bundle
       vendor.css            --> css dependencies
       views.js              --> file requiring all the views modules to ship with webpack 

@@ -106,7 +106,7 @@ We have configured a [Docker](https://www.docker.com/) file and two Gradle tasks
 gradlew dockerBuild
 ```
 
-This task will create a Docker container with the name `tetralog/vm`
+This task will create a Docker container with the name `pbarri/vm`
 
 ```
 gradlew dockerRun

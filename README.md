@@ -152,7 +152,7 @@ To add new functionality to the application, you have to have in mind the next:
 
 Example:
 ```
-require('views/view1/view1.js');
+require('views/index/index.js');
 ```
 
 * To add a new component (directives), you have to require the entry point of the component to the file `components.js` in the same way we did in the views.

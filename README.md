@@ -52,7 +52,7 @@ vacation-manager/
       views.js              --> file requiring all the views modules to ship with webpack 
     bower.json            --> bower configuration file
     karma.conf.js         --> config file for running unit tests with Karma
-    package.json          --> node configuration file
+ .   package.json          --> node configuration file
     webpack.config.js     --> webpack configuration file
 ```
 
@@ -146,6 +146,32 @@ npm start
 ```
 
 *Note that you have to be in the ui root folder*
+
+### Application versioning
+
+This project follows the semantic versioning.
+
+Given a MAJOR.MINOR.PATCH version, increment:
+
+* `MAJOR` version when new incompatible changes are introduced in the API.
+* `MINOR` when new features are introduced and are backwards compatible with the existing API.
+* `PATCH` for barckwards compatible bug fixes.
+
+In adition to that, we've included two labels, `SNAPSHOT` and `RELEASE` to distinguish 
+between production ready releases and nightly builds.
+
+To help in the version, the application is shipped with gradle tasks to create new versions. Those tasks are:
+
+* `gradlew majorRelease dist`
+* `gradlew minorRelease dist`
+* `gradlew patchRelease dist`
+* `gradlew majorSnapshot dist`
+* `gradlew minorSnapshot dist`
+* `gradlew patchSnapshot dist`
+
+Executing any of those tasks will create the artifacts with the new version, and update the properties in the file gradle.properties.
+ 
+In the current version, this file must be pushed to the repository manually to prevent version conflicts.
 
 ## Extending the application
 

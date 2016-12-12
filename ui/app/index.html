@@ -19,32 +19,21 @@
             <div layout="column" flex>
                 <md-content ng-controller="VmController" flex="none">
                     <md-toolbar class="md-hue-2">
-                        <div class="md-toolbar-tools">
-                            <md-button class="md-icon-button" ng-click="toggleSidenav()" hide-gt-md>
-                                <md-icon md-svg-icon="resources/images/menu.svg"></md-icon>
-                            </md-button>
+                        <div class="md-toolbar-tools" layout="row">
                             <h2>
                                 <span>Vacation Manager</span>
                             </h2>
+                            <div flex></div>
+                            <md-button class="md-fab md-primary md-hue-2" aria-label="Profile">
+                                <md-icon md-svg-src="resources/images/profile.svg"></md-icon>
+                            </md-button>
                         </div>
                     </md-toolbar>
                 </md-content>
                 <section layout="row" flex>
-                    <div ng-controller="VmController" layout="row">
-                        <md-sidenav class="md-sidenav-left"
-                                    md-component-id="left"
-                                    md-is-locked-open="$mdMedia('gt-md')"
-                                    md-whiteframe="4">
-                            <md-content layout-padding>
-                                <p>
-                                    This is the future menu
-                                </p>
-                            </md-content>
-                        </md-sidenav>
-                    </div>
-                    <md-content flex layout-padding>
-                        <div layout="column" layout-align="top center">
-                            <div ng-view></div>
+                    <md-content flex>
+                        <div flex>
+                            <div ng-view flex layout="column" layout-padding></div>
                         </div>
                     </md-content>
                 </section>

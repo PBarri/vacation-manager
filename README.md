@@ -160,7 +160,7 @@ Given a MAJOR.MINOR.PATCH version, increment:
 In adition to that, we've included two labels, `SNAPSHOT` and `RELEASE` to distinguish 
 between production ready releases and nightly builds.
 
-To help in the version, the application is shipped with gradle tasks to create new versions. Those tasks are:
+To help with the versioning, the application is shipped with gradle tasks to create new versions. Those tasks are:
 
 * `gradlew majorRelease dist`
 * `gradlew minorRelease dist`
@@ -171,7 +171,7 @@ To help in the version, the application is shipped with gradle tasks to create n
 
 Executing any of those tasks will create the artifacts with the new version, and update the properties in the file gradle.properties.
  
-In the current version, this file must be pushed to the repository manually to prevent version conflicts.
+*NOTE: In the current version, this file must be pushed to the repository manually to prevent version conflicts.*
 
 ## Extending the application
 

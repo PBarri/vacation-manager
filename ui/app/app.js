@@ -6,25 +6,19 @@ angular
         'ngRoute',
         'vm.index',
         'vm.view2',
-        'ngMaterial'
+        'ngMaterial',
+        'md.data.table'
     ])
-    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    .config(['$locationProvider', '$routeProvider', '$mdThemingProvider', function($locationProvider, $routeProvider, $mdThemingProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({redirectTo: '/index'});
+        $mdThemingProvider
+            .theme('default')
+            .primaryPalette('grey')
+            .accentPalette('pink')
+            .warnPalette('red')
+            .backgroundPalette('grey');
     }])
-    .controller('VmController', function($scope, $mdSidenav) {
-        $scope.toggleSidenav = function() {
-            $mdSidenav('left').toggle();
-        }
-        $scope.close = function() {
-            $mdSidenav('left').close();
-        }
+    .controller('VmController', function($scope) {
     })
 ;
-
-function buildToggler(navID) {
-    return function() {
-        // Component lookup should always be available since we are not using `ng-if`
-        $mdSidenav(navID).toggle();
-    }
-}

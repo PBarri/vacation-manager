@@ -11,3 +11,6 @@ require('../bower_components/angular-aria');
 require('../bower_components/angular-loader');
 require('../bower_components/angular-messages');
 require('../bower_components/angular-material');
+require('../bower_components/angular-material-data-table');
+require('moment');
+require('../bower_components/angular-bootstrap-calendar');

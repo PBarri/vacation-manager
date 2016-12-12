@@ -14,6 +14,13 @@ const path = require('path');
 const rootDir = path.resolve(__dirname);
 
 module.exports = {
+    resolve: {
+        extensions: ['', '.js', '.css'],
+        alias: {
+            moment: 'moment/moment.js'
+        },
+        modulesDirectories: ['node_modules', 'app', 'bower_components']
+    },
     entry: {
         app: ['./app/app.js', './app/views.js', './app/components.js', './app/services.js'],
         styles: ['./app/styles.css'],
@@ -27,10 +34,6 @@ module.exports = {
         filename: '[name].js',
         sourceMapFilename: '[name].map',
         publicPath: '/vacation-manager'
-    },
-    resolve: {
-        extensions: ['', '.js', '.css'],
-        modulesDirectories: ['node_modules', 'app', 'bower_components']
     },
     module: {
         loaders: [

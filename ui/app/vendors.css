@@ -1,4 +1,10 @@
+/* Import Bootstrap CSS */
+@import url('../bower_components/bootstrap/dist/css/bootstrap.min.css');
 /* Import Angular Js CSS */
 @import url('../bower_components/angular/angular-csp.css');
 /* Import Angular Material CSS */
 @import url('../bower_components/angular-material/angular-material.min.css');
+/* Impor Angular Material Data Table CSS */
+@import url('../bower_components/angular-material-data-table/dist/md-data-table.min.css');
+/* Import Bootstrap CSS */
+@import url('../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css');

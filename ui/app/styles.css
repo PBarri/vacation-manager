@@ -23,3 +23,17 @@
   content: "|";
   padding-right: 0.3em;
 }
+
+section {
+  padding: 1rem;
+}
+
+.md-toolbar-tools {
+  color: white;
+}
+
+.md-headline {
+  color: rgb(158,158,158);
+  box-shadow: 0 0 0 0 rgba(0,0,0,.2),0 0 0px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+  padding-bottom: 5px;
+}

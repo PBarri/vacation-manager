@@ -1,4 +1,4 @@
-create sequence hibernate_sequence start 6 increment 1;
+create sequence hibernate_sequence start 7 increment 1;
 create table P_VM_ROLES (id int8 not null, code varchar(50), description varchar(500), primary key (id));
 create table T_VM_TEAMS (id int8 not null, timestamp timestamp not null, version int8, name varchar(20) not null, primary key (id));
 create table T_VM_USERS (id int8 not null, timestamp timestamp not null, version int8, attempts int4 not null, birthday date, city varchar(20), country varchar(20), email varchar(255), expiring_date date, identifier varchar(20) not null, last_login timestamp, locked boolean not null, name varchar(20) not null, password varchar(255) not null, phone varchar(255), photo_url varchar(255), surname varchar(50) not null, vacation_days int4 not null, role_id int8 not null, team_id int8, primary key (id));

@@ -59,14 +59,14 @@ public class DataTests {
         TVmUser user = new TVmUser();
 
         user.setName("Tecnico");
-        user.setSurname("1");
+        user.setSurname("20");
         user.setAttempts(0);
         user.setBirthday(LocalDate.of(1989, Month.JULY, 21));
         user.setCountry("Spain");
         user.setCity("Seville");
-        user.setEmail("t1@organization.es");
+        user.setEmail("t20@organization.es");
         user.setExpiringDate(LocalDate.of(2020, Month.JANUARY, 1).atStartOfDay());
-        user.setIdentifier("t1");
+        user.setIdentifier("t20");
         user.setLocked(false);
         user.setPassword("password");
         user.setVacationDays(22);
@@ -79,7 +79,7 @@ public class DataTests {
     public void testNewTeam() {
         TVmTeam team = new TVmTeam();
 
-        team.setName("Crossfield");
+        team.setName("TestTeam");
 
         teamService.save(team);
     }

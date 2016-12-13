@@ -3,3 +3,14 @@ server:
 security:
   basic:
     enabled: false
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.format_sql: false
+      hibernate.cglib.use_reflection_optimizer: true
+    show-sql: true
+  profiles:
+    active: postgres

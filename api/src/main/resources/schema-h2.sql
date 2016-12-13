@@ -1,0 +1,12 @@
+create sequence hibernate_sequence start 6 increment 1;
+create table P_VM_ROLES (id int8 not null, code varchar(50), description varchar(500), primary key (id));
+create table T_VM_TEAMS (id int8 not null, timestamp timestamp not null, version int8, name varchar(20) not null, primary key (id));
+create table T_VM_USERS (id int8 not null, timestamp timestamp not null, version int8, attempts int4 not null, birthday date, city varchar(20), country varchar(20), email varchar(255), expiring_date date, identifier varchar(20) not null, last_login timestamp, locked boolean not null, name varchar(20) not null, password varchar(255) not null, phone varchar(255), photo_url varchar(255), surname varchar(50) not null, vacation_days int4 not null, role_id int8 not null, team_id int8, primary key (id));
+create table T_VM_VACATIONS (id int8 not null, timestamp timestamp not null, version int8, approved boolean not null, end_date date not null, managed boolean not null, start_date date not null, year int4 not null, user_id int8 not null, primary key (id));
+alter table P_VM_ROLES add constraint UK_ROLE_CODE unique (code);
+alter table T_VM_TEAMS add constraint UK_TEAM_NAME unique (name);
+alter table T_VM_USERS add constraint UK_USER_EMAIL unique (email);
+alter table T_VM_USERS add constraint UK_USER_ID unique (identifier);
+alter table T_VM_USERS add constraint FK_USER_ROLES foreign key (role_id) references P_VM_ROLES;
+alter table T_VM_USERS add constraint FK_USER_TEAMS foreign key (team_id) references T_VM_TEAMS;
+alter table T_VM_VACATIONS add constraint FK_VACATION_USERS foreign key (user_id) references T_VM_USERS;

@@ -1,6 +1,7 @@
 package com.pbarri.vm.api.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -13,6 +14,7 @@ public class TVmTeam extends BaseEntity {
 
     public TVmTeam() {
         users = new ArrayList<>();
+        timestamp = LocalDateTime.now();
     }
 
     @Column(nullable = false, unique = true, length = 20)

@@ -2,6 +2,7 @@ package com.pbarri.vm.api.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by pablo on 13/12/16.
@@ -13,6 +14,7 @@ public class TVmVacation extends BaseEntity {
     // Constructor
 
     public TVmVacation() {
+        timestamp = LocalDateTime.now();
     }
 
     // Attributes

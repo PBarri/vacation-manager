@@ -19,6 +19,7 @@ public class TVmUser extends BaseEntity implements UserDetails {
 
     public TVmUser() {
         vacations = new ArrayList<>();
+        timestamp = LocalDateTime.now();
     }
 
     @Column(nullable = false, unique = true, length = 20)
@@ -67,6 +68,9 @@ public class TVmUser extends BaseEntity implements UserDetails {
     @Column(name = "VACATION_DAYS", nullable = false)
     private Integer vacationDays;
 
+    @Transient
+    private Integer vacationsLeft;
+
     @OneToOne
     @JoinColumn(referencedColumnName = "ID", nullable = false)
     private PVmRole role;
@@ -74,11 +78,11 @@ public class TVmUser extends BaseEntity implements UserDetails {
     @ManyToOne
     private TVmTeam team;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<TVmVacation> vacations;
 
     public void addVacation(TVmVacation vacation) {
-        if (vacations.contains(vacation)) {
+        if (!vacations.contains(vacation)) {
             vacations.add(vacation);
             vacation.setUser(this);
         }
@@ -249,6 +253,10 @@ public class TVmUser extends BaseEntity implements UserDetails {
 
     public void setVacationDays(Integer vacationDays) {
         this.vacationDays = vacationDays;
+    }
+
+    public Integer getVacationsLeft() {
+        return vacationDays - vacations.size();
     }
 
     public PVmRole getRole() {

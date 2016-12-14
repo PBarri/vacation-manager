@@ -1,5 +1,6 @@
 server:
   port: 8000
+  context-path: /api
 security:
   basic:
     enabled: false
@@ -13,4 +14,4 @@ spring:
       hibernate.cglib.use_reflection_optimizer: true
     show-sql: true
   profiles:
-    active: memdb
+    active: postgres

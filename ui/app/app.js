@@ -9,6 +9,7 @@ angular
         'ngMaterial',
         'md.data.table'
     ])
+    .constant('baseUrl', "/vm-api")
     .config(['$locationProvider', '$routeProvider', '$mdThemingProvider', function($locationProvider, $routeProvider, $mdThemingProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({redirectTo: '/index'});

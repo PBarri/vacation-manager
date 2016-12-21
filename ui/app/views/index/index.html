@@ -8,7 +8,7 @@
                 </md-input-container>
                 <md-input-container class="md-block" flex>
                     <label>Team</label>
-                    <input ng-model="user.team" disabled />
+                    <input ng-model="user.teamName" disabled />
                 </md-input-container>
                 <md-input-container class="md-block" flex>
                     <label>Days left</label>
@@ -23,7 +23,7 @@
                         <span>Vacations</span>
                         <div flex></div>
                         <md-button class="md-icon-button">
-                            <md-icon md-svg-src="../resources/images/plus.svg" class="48" style="fill: white;" aria-label="add"></md-icon>
+                            <md-icon md-svg-src="resources/images/plus.svg" class="48" style="fill: white;" aria-label="add"></md-icon>
                         </md-button>
                     </div>
                 </md-toolbar>
@@ -55,7 +55,7 @@
     <div layout="column" layout-padding flex>
         <div flex>
             <section flex layout-padding md-whiteframe="1">
-                <h2 class="md-headline">Team {{user.team}} calendar</h2>
+                <h2 class="md-headline">Team {{user.teamName}} calendar</h2>
                 <mwl-calendar
                         view="calendarView"
                         view-date="viewDate"

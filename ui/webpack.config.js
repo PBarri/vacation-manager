@@ -22,7 +22,7 @@ module.exports = {
         modulesDirectories: ['node_modules', 'app', 'bower_components']
     },
     entry: {
-        app: ['./app/app.js', './app/views.js', './app/components.js', './app/services.js'],
+        app: ['./app/app.js', './app/components.js', './app/services.js', './app/views.js'],
         styles: ['./app/styles.css'],
         vendor: ['./app/vendor.js'],
         base: ['./app/vendors.css']

@@ -7,7 +7,7 @@ angular.module('vm.index', ['ngRoute', 'mwl.calendar']).config(['$routeProvider'
   });
 }])
 
-.controller('IndexController', function($scope) {
+.controller('IndexController', ['$scope', function($scope) {
   $scope.user =
     {
       name: 'Pablo Barrientos',
@@ -42,4 +42,4 @@ angular.module('vm.index', ['ngRoute', 'mwl.calendar']).config(['$routeProvider'
     $scope.calendarView = 'month';
     $scope.events = [];
     $scope.viewDate = new Date();
-});
+}]);

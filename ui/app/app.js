@@ -9,7 +9,6 @@ angular
         'ngMaterial',
         'md.data.table'
     ])
-    .constant('baseUrl', "/vm-api")
     .config(['$locationProvider', '$routeProvider', '$mdThemingProvider', function($locationProvider, $routeProvider, $mdThemingProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({redirectTo: '/index'});
@@ -20,6 +19,7 @@ angular
             .warnPalette('red')
             .backgroundPalette('grey');
     }])
-    .controller('VmController', function($scope) {
+    .controller('VmController', function() {
+
     })
 ;
